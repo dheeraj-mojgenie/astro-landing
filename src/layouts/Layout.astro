@@ -1,27 +1,43 @@
 ---
-import "../styles/global.css";
-import "../scss/custom.scss";
-import Navbar from "../components/common/Navbar.astro";
+import '../styles/global.css';
+import '../scss/custom.scss';
+import Navbar from '../components/common/Navbar.astro';
+import Footer from '../components/common/Footer.astro';
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
-        <link
-            href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
-            rel="stylesheet"
-        />
-        <title>Astro Basics</title>
-    </head>
-    <body>
-        <Navbar />
-        <slot />
-        <script
-            is:inline
-            src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"
-        ></script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <!--  -->
+
+    <meta property="og:title" content="AASKCON |  2025" />
+    <meta property="og:site_name" content="AASKCON |  2025" />
+    <meta property="og:url" content="" />
+    <meta
+      property="og:description"
+      content="Association of Arthroscopy Society of Kerala | Kerala-Chapter of Indian
+        Arthroscopy Society"
+    />
+    <meta property="og:type" content="" />
+    <meta property="og:image" content="/assets/img/png/logo.png" />
+
+    <!--  -->
+    <title>Astro Basics</title>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+    <script
+      is:inline
+      src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"
+    ></script>
+  </body>
 </html>
