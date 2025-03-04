@@ -1,8 +1,9 @@
 ---
 import '../styles/global.css';
 import '../scss/custom.scss';
-import Navbar from '../components/common/Navbar.astro';
 import Footer from '../components/common/Footer.astro';
+import Navbar from '../components/common/Navbar.astro';
+// import Navbar from '../components/common/Navbar';
 ---
 
 <html lang="en">
@@ -15,8 +16,6 @@ import Footer from '../components/common/Footer.astro';
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
       rel="stylesheet"
     />
-    <!--  -->
-
     <meta property="og:title" content="AASKCON |  2025" />
     <meta property="og:site_name" content="AASKCON |  2025" />
     <meta property="og:url" content="" />
@@ -28,16 +27,120 @@ import Footer from '../components/common/Footer.astro';
     <meta property="og:type" content="" />
     <meta property="og:image" content="/assets/img/png/logo.png" />
 
-    <!--  -->
     <title>Astro Basics</title>
+    <script
+      is:inline
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script is:inline type="text/javascript">
+      (function () {
+        emailjs.init('GA0vim0EF4U8fiKTB');
+      })();
+
+      window.onload = function () {
+        document
+          .getElementById('contact-form')
+          .addEventListener('submit', function (event) {
+            event.preventDefault();
+            console.log('hi');
+            var form = this; // Store a reference to the form
+            // Set values from input fields
+            form.user_name.value = document.getElementById('userName').value;
+            form.user_email.value = document.getElementById('userEmail').value;
+            form.message.value = document.getElementById('messageByUser').value;
+
+            // Send the form using email.js
+            emailjs.sendForm('service_pxz3f3h', 'template_z9d2lfl', form).then(
+              function () {
+                console.log('SUCCESS!');
+                // Clear the form fields on success
+                document.getElementById('userName').value = '';
+                document.getElementById('userEmail').value = '';
+                document.getElementById('messageByUser').value = '';
+
+                // Show success toast
+                var toast = document.getElementById('toast-success');
+                toast.classList.remove('hidden');
+
+                // Scroll to the toast message
+                toast.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'center',
+                });
+
+                // Hide toast after 3 seconds
+                setTimeout(function () {
+                  toast.classList.add('hidden');
+                }, 3000); // 3000ms = 3 seconds
+              },
+              function (error) {
+                console.log('FAILED...', error);
+              }
+            );
+          });
+      };
+    </script>
   </head>
   <body>
-    <Navbar />
+    <!-- <Navbar /> -->
+    <Navbar client:load />
+
     <slot />
     <Footer />
     <script
       is:inline
       src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"
     ></script>
+
+    <script is:inline>
+      // Function to handle smooth scrolling
+      function smoothScrollTo(target, offset) {
+        const targetElement = document.getElementById(target);
+
+        if (targetElement) {
+          const newPosition = targetElement.offsetTop - offset;
+          window.scrollTo({
+            top: newPosition,
+            behavior: 'smooth',
+          });
+        }
+      } // Function to handle scroll-to behavior based on URL parameters
+
+      function handleScrollToParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const target = urlParams.get('target');
+        const offset = parseInt(urlParams.get('offset')) || 0;
+
+        if (target) {
+          smoothScrollTo(target, offset);
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        // Handle scroll-to behavior when the page loads
+        handleScrollToParams(); // Event listener for all links with class "scroll-to"
+
+        const scrollToLinks = document.querySelectorAll('.scroll-to');
+
+        scrollToLinks.forEach(function (link) {
+          link.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default anchor behavior
+
+            const target = this.getAttribute('data-target');
+            const offset = parseInt(this.getAttribute('data-offset')) || 0; // Check if target is within the same page
+
+            const currentPageURL = window.location.pathname;
+            if (currentPageURL === '/') {
+              // If target is within the same page, perform smooth scrolling
+              smoothScrollTo(target, offset);
+            } else {
+              // If target is on another page, redirect to homepage with URL parameters
+              window.location.href = '/?target=' + target + '&offset=' + offset;
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>

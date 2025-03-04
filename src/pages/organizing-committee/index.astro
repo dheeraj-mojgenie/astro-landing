@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const committeeMembers = [
+  {
+    src: '/assets/img/organizing-committee/cairperson1.png',
+    alt: 'Committee Chairperson 1',
+    name: 'Dr. Sunitha Maheshwari',
+    role: 'Organizing Chairperson',
+  },
+  {
+    src: '/assets/img/organizing-committee/cairperson2.png',
+    alt: 'Committee Chairperson 2',
+    name: 'Dr. Sunitha Maheshwari',
+    role: 'Organizing Chairperson',
+  },
+  {
+    src: '/assets/img/organizing-committee/cairperson3.png',
+    alt: 'Committee Chairperson 3',
+    name: 'Dr. Sunitha Maheshwari',
+    role: 'Organizing Chairperson',
+  },
+  {
+    src: '/assets/img/organizing-committee/cairperson4.png',
+    alt: 'Committee Chairperson 4',
+    name: 'Dr. Sunitha Maheshwari',
+    role: 'Organizing Chairperson',
+  },
+  {
+    src: '/assets/img/organizing-committee/cairperson5.png',
+    alt: 'Committee Chairperson 5',
+    name: 'Dr. Sunitha Maheshwari',
+    role: 'Organizing Chairperson',
+  },
+  {
+    src: '/assets/img/organizing-committee/cairperson6.png',
+    alt: 'Committee Chairperson 6',
+    name: 'Dr. Sunitha Maheshwari',
+    role: 'Organizing Chairperson',
+  },
+];
+---
+
+<Layout title="">
+  <div
+    class="bg-[url('/assets/img/jpg/hero-org-committee.jpg')] 2xl:pl-[130px] 2xl:pr-[200px] xl:pl-[80px] xl:pr-[50px] px-[15px] md:px-[50px] pt-[200px] md:pt-[250px] pb-[47px] md:pb-[80px] text-white bg-no-repeat bg-cover relative bg-top"
+  >
+    <div class="relative z-10">
+      <p
+        class="text-left font-bold text-[20px] md:text-[42px] uppercase tracking-wide mb-5"
+      >
+        Organizing Committee
+      </p>
+      <p class="max-w-4xl text-left">
+        Meet the IMACON 2025 Organizing Committee, a team dedicated to
+        delivering a seamless and inspiring event. .
+      </p>
+    </div>
+    <!-- <div class="absolute bg-[#a6482680] w-full h-full top-0 left-0"></div> -->
+  </div>
+  <div
+    class="2xl:pl-[130px] 2xl:pr-[200px] xl:pl-[80px] xl:pr-[50px] px-[15px] md:px-[50px] pt-[33px] md:pt-[100px] pb-[47px] md:pb-[80px] relative"
+  >
+    <div
+      class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-[40px] md:gap-[25px] w-full"
+    >
+      {
+        committeeMembers.map((member, i) => (
+          <div class={`w-full flex flex-col gap-4 items-center text-black `}>
+            <img
+              class={`min-w-[152px] min-h-[152px] md:min-w-[200px] md:min-h-[200px] max-w-[152px] max-h-[152px] md:max-w-[200px] md:max-h-[200px]  rounded-full object-cover  object-top  bg-[#a6482680]`}
+              src={member.src}
+              alt={member.alt}
+            />
+            <div class="text-center">
+              <p class="text-xl font-bold lg:whitespace-nowrap">
+                {member.name}
+              </p>
+              <p class="font-medium whitespace-pre-line">{member.role}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

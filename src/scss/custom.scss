@@ -1,11 +1,35 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 .font-inter {
-    font-family: "Inter", serif;
+  font-family: 'Inter', serif;
 }
 
 @media (width >= 1440px) {
-    .laptop-view {
-        display: block;
-    }
+  .laptop-view {
+    display: block;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: 'TTCommons Black';
+  src: url('/fonts/TTCommons-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: TTCommons Regular;
+  src: url('/fonts/TTCommons-Regular.ttf') format('truetype');
+}
+
+.ttcommons-black {
+  font-family: 'TTCommons Black', sans-serif;
+}
+
+.ttcommons-regular {
+  font-family: 'TTCommons Regular', sans-serif;
 }

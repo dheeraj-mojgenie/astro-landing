@@ -1,0 +1,532 @@
+---
+import ImageCard from '../../components/small/ImageCard.astro';
+import Layout from '../../layouts/Layout.astro';
+// destinations.astro
+const destinations = [
+  {
+    id: 'munnar',
+    name: 'Munnar',
+    description:
+      "Nestled in the lush Western Ghats of Kerala, Munnar beckons with its emerald tea plantations and misty mountains, offering atranquil escape into nature's embrace. Immerse yourself in the serenity of its picturesque landscapes.",
+    images: [
+      { src: '/assets/img/jpg/munnar-1.jpg', text: 'Munnar' },
+      {
+        src: '/assets/img/jpg/tea-valley-resort-munnar.jpg',
+        text: 'Tea Valley Resort',
+      },
+      {
+        src: '/assets/img/jpg/TataTeaorKDHPMuseum.jpg',
+        text: 'Tata Tea Museum',
+      },
+      {
+        src: '/assets/img/jpg/tea-plantations-in-munnar.jpg',
+        text: 'Tea Plantation',
+      },
+      {
+        src: '/assets/img/jpg/waterfalls.jpg',
+        text: 'Attukad Waterfalls',
+      },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'alleppey',
+    name: 'Alleppey',
+    description:
+      "Known as the 'Venice of the East', Alleppey charms visitors with its network of serene backwaters, traditional houseboats, and peaceful village life. Experience the magic of Kerala's backwaters in this enchanting destination.",
+    images: [
+      {
+        src: '/assets/img/jpg/alleppey-backwaters.jpg',
+        text: 'Alleppey Backwaters',
+      },
+      { src: '/assets/img/jpg/Houseboats.jpg', text: 'Houseboats' },
+      { src: '/assets/img/jpg/Alappuzha-Beach.jpg', text: 'Beach' },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'kerala-folklore-museum',
+    name: 'Kerala Folklore Museum',
+    description:
+      "A cultural treasure trove showcasing Kerala's rich heritage, this architectural marvel houses an impressive collection of artifacts, traditional art forms, and ancient relics that tell the story of Kerala's vibrant past.",
+    images: [
+      {
+        src: '/assets/img/jpg/folklore-museum-1.jpg',
+        text: 'Museum Exterior',
+      },
+      {
+        src: '/assets/img/jpg/folklore-museum-2.jpg',
+        text: 'Traditional Artifacts',
+      },
+      {
+        src: '/assets/img/jpg/folklore-museum-3.jpg',
+        text: 'Art Gallery',
+      },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'waterfalls-combo',
+    name: 'Athirapally & Vazhachal Waterfalls',
+    description:
+      "Experience the majestic duo of Kerala's most spectacular waterfalls. Athirapally, known as the 'Niagara of India', and the nearby Vazhachal Falls offer breathtaking views and the soothing sounds of cascading waters amidst lush forests.",
+    images: [
+      {
+        src: '/assets/img/jpg/athirapally-falls.jpg',
+        text: 'Athirapally Falls',
+      },
+      {
+        src: '/assets/img/jpg/vazhachal-falls.jpg',
+        text: 'Vazhachal Falls',
+      },
+      { src: '/assets/img/jpg/waterfall-view.jpg', text: 'Scenic View' },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'paradesi-synagogue',
+    name: 'Paradesi Synagogue',
+    description:
+      'Built in 1568, this historic synagogue in Mattancherry is the oldest active synagogue in the Commonwealth. Features distinctive hand-painted Chinese tiles, Belgian chandeliers, and ancient scrolls, showcasing a unique blend of cultural influences.',
+    images: [
+      {
+        src: '/assets/img/jpg/synagogue-1.jpg',
+        text: 'Synagogue Exterior',
+      },
+      {
+        src: '/assets/img/jpg/synagogue-interior.jpg',
+        text: 'Interior View',
+      },
+      { src: '/assets/img/jpg/chinese-tiles.jpg', text: 'Chinese Tiles' },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'wonderla',
+    name: 'Wonderla Amusement Park',
+    description:
+      "Kerala's premier amusement park offering a perfect blend of thrilling rides, water attractions, and family entertainment. Features state-of-the-art attractions suitable for all age groups, making it an ideal destination for family fun.",
+    images: [
+      { src: '/assets/img/jpg/wonderla-1.jpg', text: 'Park Overview' },
+      {
+        src: '/assets/img/jpg/wonderla-rides.jpg',
+        text: 'Thrilling Rides',
+      },
+      { src: '/assets/img/jpg/water-park.jpg', text: 'Water Park' },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'thekkady',
+    name: 'Thekkady',
+    description:
+      'Home to the Periyar Tiger Reserve, Thekkady offers an enchanting mix of wildlife experiences, spice plantations, and scenic beauty. Explore the wilderness through boat safaris, nature walks, and unique eco-tourism activities.',
+    images: [
+      {
+        src: '/assets/img/jpg/Periyar-Lake.jpg',
+        text: 'Periyar Lake',
+      },
+      {
+        src: '/assets/img/jpg/ Spice-Gardens-thekkady.jpg',
+        text: 'Spice Gardens',
+      },
+      {
+        src: '/assets/img/jpg/wildlife-thekkady.jpg',
+        text: 'Wildlife',
+      },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'edappally-church',
+    name: 'Edappally Church Complex',
+    description:
+      'A significant religious landmark featuring both ancient and modern churches dedicated to St. George. The complex showcases stunning architecture and serves as an important pilgrimage center, blending historical and contemporary religious elements.',
+    images: [
+      {
+        src: '/assets/img/jpg/edappally-church-1.jpg',
+        text: 'Church Complex',
+      },
+      { src: '/assets/img/jpg/old-church.jpg', text: 'Ancient Church' },
+      { src: '/assets/img/jpg/new-church.jpg', text: 'Modern Church' },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'kathakali-centre',
+    name: 'Great K V Kathakali Centre',
+    description:
+      "Experience the classical dance-drama of Kerala in its most authentic form. The centre offers daily performances, makeup demonstrations, and insights into this ancient art form, providing visitors with a deep understanding of Kerala's cultural heritage.",
+    images: [
+      { src: '/assets/img/jpg/kathakali-1.jpg', text: 'Performance' },
+      {
+        src: '/assets/img/jpg/kathakali-makeup.jpeg',
+        text: 'Makeup Session',
+      },
+      { src: '/assets/img/jpg/kathakali-costumes.jpg', text: 'Costumes' },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'jew-town',
+    name: 'Jew Town',
+    description:
+      "A historic trading hub in Mattancherry known for its antique shops, spice markets, and cultural significance. The narrow streets lined with colonial buildings tell stories of Kerala's rich trading history and multicultural heritage.",
+    images: [
+      {
+        src: '/assets/img/jpg/jew-town.jpg',
+        text: 'Street View',
+      },
+      {
+        src: '/assets/img/jpg/antique-shops.jpeg',
+        text: 'Antique Shops',
+      },
+      { src: '/assets/img/jpg/spice-market.jpg', text: 'Spice Market' },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'kerala-history-museum',
+    name: 'Museum of Kerala History',
+    description:
+      "A comprehensive museum chronicling Kerala's evolution from ancient times to the modern era through artifacts, dioramas, and multimedia presentations. Features unique exhibitions on art, culture, and historical events.",
+    images: [
+      {
+        src: '/assets/img/jpg/history-museum-1.jpg',
+        text: 'Museum Building',
+      },
+      {
+        src: '/assets/img/jpg/historical-artifacts.jpg',
+        text: 'Artifacts',
+      },
+      { src: '/assets/img/jpg/diorama-display.jpg', text: 'Artifacts' },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'bolgatty-palace',
+    name: 'Bolgatty Palace',
+    description:
+      "A former Dutch palace turned heritage hotel, situated on Bolgatty Island. This colonial mansion offers stunning views of the backwaters, luxurious accommodations, and a glimpse into Kerala's colonial past.",
+    images: [
+      { src: '/assets/img/jpg/bolgatty-1.jpg', text: 'Palace View' },
+      { src: '/assets/img/jpg/palace-gardens.jpg', text: 'Gardens' },
+      { src: '/assets/img/jpg/palace-interior.jpg', text: 'Interior' },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'kumarakom',
+    name: 'Kumarakom',
+    description:
+      "A picturesque village on Vembanad Lake, famous for its bird sanctuary, houseboat cruises, and ayurvedic experiences. Perfect for nature lovers and those seeking tranquility in Kerala's backwaters.",
+    images: [
+      { src: '/assets/img/jpg/kumarakom-1.jpg', text: 'Backwaters' },
+      {
+        src: '/assets/img/jpg/bird-sanctuary.jpg',
+        text: 'Bird Sanctuary',
+      },
+      { src: '/assets/img/jpg/resort-view.jpg', text: 'Lake Resort' },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'hill-view-park',
+    name: 'Hill View Park',
+    description:
+      "A scenic park offering panoramic views of the surrounding landscape. Features well-maintained gardens, children's play areas, and walking trails, making it an ideal spot for family outings and nature enthusiasts.",
+    images: [
+      { src: '/assets/img/jpg/hill-view-1.jpg', text: 'Panoramic View' },
+      { src: '/assets/img/jpg/park-gardens.jpg', text: 'Gardens' },
+      { src: '/assets/img/jpg/sunset-view.jpg', text: 'Sunset Point' },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'idukki',
+    name: 'Idukki',
+    description:
+      "Home to Asia's first arch dam, Idukki offers stunning mountain scenery, wildlife sanctuaries, and spice plantations. The region's high-altitude landscapes and cool climate make it perfect for nature tourism and adventure activities.",
+    images: [
+      { src: '/assets/img/jpg/idukki-1.jpg', text: 'Idukki Dam' },
+      { src: '/assets/img/jpg/idukki-wildlife.jpg', text: 'Wildlife' },
+      { src: '/assets/img/jpg/mountain-view.jpg', text: 'Mountain View' },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'vadakkumnathan-temple',
+    name: 'Vadakkumnathan Temple, Thrissur',
+    description:
+      "An ancient Shiva temple known for its exceptional Kerala-style architecture and historical significance. The temple's rich murals, traditional architecture, and cultural importance make it a must-visit destination.",
+    images: [
+      { src: '/assets/img/jpg/temple-1.jpeg', text: 'Temple View' },
+      {
+        src: '/assets/img/jpg/temple-murals.jpeg',
+        text: 'Ancient Murals',
+      },
+      {
+        src: '/assets/img/jpg/temple-architecture.jpg',
+        text: 'Architecture',
+      },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'salim-ali-sanctuary',
+    name: 'Salim Ali Bird Sanctuary',
+    description:
+      'A paradise for bird watchers, this sanctuary on Thattekad offers sightings of rare avian species in their natural habitat. The sanctuary is known for its rich biodiversity and educational programs on bird conservation.',
+    images: [
+      {
+        src: '/assets/img/jpg/bird-sanctuary-1.jpg',
+        text: 'Sanctuary View',
+      },
+      { src: '/assets/img/jpg/rare-birds.jpg', text: 'Bird Species' },
+      { src: '/assets/img/jpg/nature-trail.jpg', text: 'Nature Trail' },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'vagamon',
+    name: 'Vagamon',
+    description:
+      'A hill station characterized by lush green meadows, pine forests, and tea plantations. Popular for paragliding, trekking, and its peaceful atmosphere, Vagamon offers a perfect escape from city life.',
+    images: [
+      { src: '/assets/img/jpg/vagamon-1.jpeg', text: 'Green Meadows' },
+      { src: '/assets/img/jpg/pine-forest.jpg', text: 'Pine Forest' },
+      { src: '/assets/img/jpg/tea-gardens.jpg', text: 'Tea Gardens' },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'gavi',
+    name: 'Gavi',
+    description:
+      'An eco-tourism destination offering pristine forests, diverse wildlife, and adventurous activities. Known for its sustainable tourism practices, Gavi provides visitors with an authentic forest experience.',
+    images: [
+      { src: '/assets/img/jpg/gavi-1.webp', text: 'Forest View' },
+      { src: '/assets/img/jpg/wildlife-gavi.jpg', text: 'Wildlife' },
+      { src: '/assets/img/jpg/camping-site.jpg', text: 'Camping' },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'shopping-malls',
+    name: 'Premium Shopping Destinations',
+    description:
+      "Experience world-class shopping at Lulu Mall and Forum Mall, Kerala's premier shopping destinations. These modern malls offer international brands, entertainment zones, fine dining, and much more for the perfect urban leisure experience.",
+    images: [
+      { src: '/assets/img/jpg/lulu-mall.jpeg', text: 'Lulu Mall' },
+      { src: '/assets/img/jpg/forum-mall.jpg', text: 'Forum Mall' },
+      {
+        src: '/assets/img/jpg/shopping-experience.jpg',
+        text: 'Shopping Experience',
+      },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'fort-kochi',
+    name: 'Fort Kochi',
+    description:
+      'Fort Kochi, steeped in history and culture, invites you to explore its quaint streets lined with colonial architecture and bustling spice markets. Delight in the blend of Portuguese, Dutch, and British influences as you wander through its charming alleys.',
+    images: [
+      { src: '/assets/img/jpg/fort-kochi.jpg', text: ' Fort Kochi ' },
+      {
+        src: '/assets/img/jpg/chineese-nets.jpg',
+        text: ' Chineese Fishing Nets ',
+      },
+      {
+        src: '/assets/img/jpg/princess-street.jpg',
+        text: ' Princess Street ',
+      },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'hill-palace-museum',
+    name: 'Hill Palace Museum',
+    description:
+      "Step into history at the Hill Palace Museum, where centuries-old artifacts and royal treasures narrate tales of Kerala's regal past. Explore opulent chambers, lush gardens, and fascinating exhibits",
+    images: [
+      {
+        src: '/assets/img/jpg/hill-palace.jpg',
+        text: 'Palace SouthBlock ',
+      },
+      {
+        src: '/assets/img/jpg/hill-palace-2.jpg',
+        text: 'Hill Palace Museum ',
+      },
+      {
+        src: '/assets/img/jpg/hill-palace-3.jpg',
+        text: 'Palace Northern Side ',
+      },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'cherai-beach',
+    name: 'Cherai Beach',
+    description:
+      'Cherai Beach is located in Cherai in the northern side of Vypin Island, a suburb of the city Kochi in the state of Kerala, India. One of the most visited beaches in the state',
+    images: [
+      { src: '/assets/img/jpg/cherai-beach.jpg', text: ' Cherai Beach ' },
+      {
+        src: '/assets/img/jpg/floating-bridge.jpg',
+        text: ' Floating Bridge ',
+      },
+      {
+        src: '/assets/img/jpg/paragliding.jpg',
+        text: ' Paragliding ',
+      },
+    ],
+    reverse: false,
+  },
+  {
+    id: 'mattancherry-palace',
+    name: 'Mattancherry Palace',
+    description:
+      'The Mattancherry Palace is a palace popularly known as the Dutch Palace, in Mattancherry, Kochi, Kerala which features Kerala murals depicting portraits and exhibits of the Rajas of Kochi.',
+    images: [
+      {
+        src: '/assets/img/jpg/Mattancherry-Palace-Museum.jpg',
+        text: ' Mattancherry Palace ',
+      },
+      {
+        src: '/assets/img/jpg/Mattancherry-Palace-Throne-Room.jpg',
+        text: ' Throne Room ',
+      },
+      {
+        src: '/assets/img/jpg/mattanchery-palace-3.jpg',
+        text: ' Entrance ',
+      },
+    ],
+    reverse: true,
+  },
+  {
+    id: 'marine-drive',
+    name: 'Marine Drive',
+    description:
+      'Marine Drive is a buzzing waterfront district known for the Marine Walkway, popular for evening strolls, and leafy Subhash Bose Park. The modern Rainbow and Kettuvallam bridges offer backwater views, and cruises leave from jetties by the water.',
+    images: [
+      {
+        src: '/assets/img/jpg/Marine-Drive-Kochi.jpg',
+        text: ' Marine Drive ',
+      },
+      {
+        src: '/assets/img/jpg/marine-drive-2.jpg',
+        text: '  Marine Walkway  ',
+      },
+      {
+        src: '/assets/img/jpg/marine-drive-3.jpg',
+        text: ' Marine Drive ',
+      },
+    ],
+    reverse: false,
+  },
+];
+---
+
+<Layout title="">
+  <div class="relative">
+    <div
+      class="bg-[url('/assets/img/jpg/popular-destination-hero.jpg')] 2xl:pl-[80px] 2xl:pr-[80px] xl:pl-[80px] xl:pr-[80px] px-[25px] md:px-[50px] pt-[200px] md:pt-[300px] pb-[47px] md:pb-[80px] text-white bg-no-repeat bg-cover bg-center"
+    >
+      <p
+        class="relative z-10 text-[30px] text-white text-left font-bold md:text-[42px] tracking-wide mb-5 uppercase"
+      >
+        popular destination
+      </p>
+      <p class="max-w-4xl text-left text-white relative z-10">
+        Explore an enchanting destination embraced by nature's embrace, where
+        verdant landscapes create a tranquil heaven.
+      </p>
+    </div>
+    <div
+      class="absolute w-full h-full top-0 left-0 right-0 bottom-0 md:hidden"
+      style="background-image: linear-gradient(335.05deg, rgba(0, 0, 0, 0) 0.18%, #6948487e 100%);"
+    >
+    </div>
+    <div
+      class="absolute w-full h-full top-0 left-0 right-0 bottom-0 hidden md:block"
+      style="background-image: linear-gradient(335.05deg, rgba(0, 0, 0, 0) 48.18%,  #6948487e 100%);"
+    >
+    </div>
+  </div>
+  {
+    destinations.map((destination) => (
+      <div
+        id={destination.id}
+        class:list={[
+          '2xl:pl-[80px] 2xl:pr-[80px] xl:pl-[80px] xl:pr-[80px] px-[25px] md:px-[50px] md:py-[70px] pt-[55px] pb-[25px]',
+          { 'bg-gray-50': destination.reverse },
+        ]}
+      >
+        <div
+          class:list={[
+            'flex flex-col gap-5 lg:gap-10 md:flex-row items-center justify-between',
+            { 'md:flex-row-reverse': destination.reverse },
+          ]}
+        >
+          <div class="flex flex-col max-w-md">
+            <p class="font-semibold mb-2 text-[32px] lg:text-[40px]">
+              {destination.name}
+            </p>
+            <p class="font-light">{destination.description}</p>
+          </div>
+
+          <div class="relative">
+            <div
+              class="flex flex-row justify-between gap-5 overflow-x-scroll w-full scrollbar-hidden max-w-[250px] md:max-w-sm lg:max-w-3xl"
+              data-carousel="slide"
+              id={`${destination.id}Images`}
+            >
+              {destination.images.map((image) => (
+                <ImageCard text={image.text} src={image.src} />
+              ))}
+
+              <button
+                type="button"
+                class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                onclick={`scrollImages('${destination.id}Images')`}
+              >
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                  <svg
+                    class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 6 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 9 4-4-4-4"
+                    />
+                  </svg>
+                  <span class="sr-only">Next</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))
+  }
+
+  <script is:inline>
+    function scrollImages(containerId) {
+      const container = document.getElementById(containerId);
+      if (container) {
+        const scrollAmount = 300; // Adjust this value as needed
+        container.scrollLeft += scrollAmount;
+      }
+    }
+
+    // Make the function available globally
+    window.scrollImages = scrollImages;
+  </script>
+</Layout>

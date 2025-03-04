@@ -1,0 +1,16 @@
+---
+const { src, text } = Astro.props;
+---
+
+<div class="relative w-full">
+  <img
+    src={src}
+    alt=""
+    class="object-cover w-full h-[300px] min-w-[250px] rounded-md"
+  />
+  <p
+    class={`flex items-center  text-[8px] md:text-[16px] absolute right-[15px] bottom-[15px] text-white bg-black/50 p-1.5 rounded-full `}
+  >
+    {text}
+  </p>
+</div>
