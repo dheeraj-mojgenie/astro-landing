@@ -52,11 +52,13 @@ const membershipTypes = [
     </h1>
 
     <!-- Responsive grid container for membership cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+    >
       {
         membershipTypes.map((membership) => (
           <div
-            class={`${membership.bgColor} opacity-70 shadow-lg text-white max-w-60 md:w-[500px] lg:min-w-full lg:max-w-full h-full m-auto`}
+            class={`${membership.bgColor} opacity-70 shadow-lg text-white min-w-[290px] h-full m-auto`}
           >
             <div class="p-6 md:p-8 lg:p-14 lg:py-20 flex flex-col h-full">
               <h2 class="text-xl md:text-2xl lg:text-3xl font-bold lg:font-extrabold mb-4 md:mb-8">
@@ -91,7 +93,7 @@ const membershipTypes = [
 
               <a
                 href="#"
-                class={`block w-full py-2 md:py-3 mt-8 text-center border-2 border-white text-white font-medium text-base md:text-lg lg:text-3xl ${membership.hoverColor} hover:bg-white transition duration-300`}
+                class={`block w-full py-2 md:py-3 mt-auto text-center border-2 border-white text-white font-medium text-base md:text-lg lg:text-xl ${membership.hoverColor} hover:bg-white transition duration-300`}
               >
                 Register
               </a>
