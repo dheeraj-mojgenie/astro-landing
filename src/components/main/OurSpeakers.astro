@@ -26,21 +26,20 @@ const speakers = [
 
 <section
   id="speakers"
-  class="bg-[#E8EEFB] px-4 sm:px-8 md:px-12 lg:px-16 py-10"
+  class="bg-[#E8EEFB] px-4 sm:px-8 md:px-14 py-14 sm:py-20"
 >
   <h1
-    class="text-xl sm:text-2xl md:text-3xl font-semibold text-center text-black mb-6 sm:mb-8"
+    class="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 py-5 w-full text-center md:text-start"
   >
     Our Speakers
   </h1>
-
   <div
     class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
   >
     {
       speakers.map((speaker, index) => (
-        <div class="flex flex-col overflow-hidden rounded-md max-h-[26rem]">
-          <div class="aspect-[3/4] overflow-hidden shadow-lg rounded-md">
+        <div class="flex flex-col overflow-hidden max-h-[26rem]">
+          <div class="aspect-[3/4] overflow-hidden shadow-lg">
             <img
               src={speaker.image}
               alt={speaker.name}
@@ -48,7 +47,7 @@ const speakers = [
             />
           </div>
           <div class="w-full pt-1">
-            <div class="text-center bg-[#224793] text-white shadow-lg rounded-md p-2">
+            <div class="text-center bg-[#224793] text-white shadow-lg p-2">
               <h2 class="text-xs sm:text-sm md:text-base lg:text-lg font-semibold truncate">
                 {speaker.name}
               </h2>
@@ -60,11 +59,11 @@ const speakers = [
     }
   </div>
 
-  <div class="flex justify-center mt-6 sm:mt-8">
+  <div class="flex justify-center mt-10 sm:mt-20 sm:mb-14">
     <button
       onclick="window.location=`/our-speakers`"
       type="button"
-      class="border-2 border-[#234893] text-[#234893] px-8 sm:px-14 md:px-20 lg:px-28 py-2 text-sm sm:text-base font-semibold rounded-md hover:bg-[#234893] hover:text-white transition-all duration-300 cursor-pointer"
+      class="border-2 border-[#234893] text-[#234893] px-8 sm:px-14 md:px-20 lg:px-28 py-3 text-sm sm:text-base lg:text-3xl lg:font-medium font-semibold hover:bg-[#234893] hover:text-white transition-all duration-300 cursor-pointer"
     >
       View All Speakers
     </button>

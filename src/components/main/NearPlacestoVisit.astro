@@ -1,9 +1,43 @@
-<!-- Near by Places to Visit Section -->
-<section class="mx-auto p-3 sm:p-10 md:p-14 lg:p-20">
+---
+// Define the image data
+const nearbyPlaces = [
+  {
+    src: '/assets/img/nearby-places/place_1.png',
+    alt: 'Beach with colorful umbrellas',
+  },
+  {
+    src: '/assets/img/nearby-places/place_2.png',
+    alt: 'Vibrant local market alley',
+  },
+  {
+    src: '/assets/img/nearby-places/place_3.png',
+    alt: 'Scenic coastal view',
+  },
+  {
+    src: '/assets/img/nearby-places/place_4.png',
+    alt: 'Delicious local cuisine',
+  },
+  {
+    src: '/assets/img/nearby-places/place_5.png',
+    alt: 'Traditional cultural shop',
+  },
+  {
+    src: '/assets/img/nearby-places/place_6.png',
+    alt: 'Beautiful sunset view',
+  },
+];
+---
+
+<section class="mx-auto sm:py-16 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
   <!-- Heading and Description -->
-  <div class="text-start mb-8 md:py-5">
-    <h1 class="text-2xl md:text-3xl font-bold mb-4">Near by Places to Visit</h1>
-    <p class="text-start text-base md:text-xl text-gray-700 max-w-3xl md:pt-5">
+  <div class="mb-8 md:py-5 text-center md:text-start">
+    <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 py-5">
+      Near by Places to Visit
+    </h1>
+
+    <p
+      class="text-gray-700 leading-relaxed text-base sm:text-lg md:text-xl font-light"
+    >
       Discover the charm of the locale with its rich heritage, inviting natural
       landscapes, and diverse culinary experiences. Immerse yourself in the
       cultural tapestry, explore nature's retreats, and savor local flavors,
@@ -13,66 +47,24 @@
 
   <!-- Image Grid -->
   <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
-    <!-- Beach with umbrella -->
-    <div class="overflow-hidden rounded-lg">
-      <img
-        src="/assets/img/nearby-places/place_1.png"
-        alt="Beach with colorful umbrellas"
-        class="w-full h-48 sm:h-90 object-cover"
-      />
-    </div>
-
-    <!-- Market alley -->
-    <div class="overflow-hidden rounded-lg">
-      <img
-        src="/assets/img/nearby-places/place_2.png"
-        alt="Vibrant local market alley"
-        class="w-full h-48 sm:h-90 object-cover"
-      />
-    </div>
-
-    <!-- Coastal view -->
-    <div class="overflow-hidden rounded-lg">
-      <img
-        src="/assets/img/nearby-places/place_3.png"
-        alt="Scenic coastal view"
-        class="w-full h-48 sm:h-90 object-cover"
-      />
-    </div>
-
-    <!-- Local cuisine -->
-    <div class="overflow-hidden rounded-lg">
-      <img
-        src="/assets/img/nearby-places/place_4.png"
-        alt="Delicious local cuisine"
-        class="w-full h-48 sm:h-90 object-cover"
-      />
-    </div>
-
-    <!-- Cultural shop -->
-    <div class="overflow-hidden rounded-lg">
-      <img
-        src="/assets/img/nearby-places/place_5.png"
-        alt="Traditional cultural shop"
-        class="w-full h-48 sm:h-90 object-cover"
-      />
-    </div>
-
-    <!-- Sunset view -->
-    <div class="overflow-hidden rounded-lg">
-      <img
-        src="/assets/img/nearby-places/place_6.png"
-        alt="Beautiful sunset view"
-        class="w-full h-48 sm:h-90 object-cover"
-      />
-    </div>
+    {
+      nearbyPlaces.map((place) => (
+        <div class="overflow-hidden">
+          <img
+            src={place.src}
+            alt={place.alt}
+            class="w-full h-48 sm:h-90 object-cover"
+          />
+        </div>
+      ))
+    }
   </div>
 
-  <div class="flex justify-center sm:mt-8 mt-6">
+  <div class="flex justify-center my-8">
     <button
-      onclick="window.location=`/our-speakers`"
+      onclick="window.location=`/near-by-places-to-visit`"
       type="button"
-      class="border-2 border-gray-400 text-gray-800 px-8 sm:px-14 md:px-20 lg:px-28 py-2 text-sm sm:text-base font-semibold rounded-md hover:bg-gray-100 transition-all duration-300 cursor-pointer"
+      class="border-2 border-black text-black px-14 md:px-20 lg:px-40 py-3 mt-10 text-sm sm:text-base lg:text-3xl lg:font-medium font-semibold self-center lg:self-start transition-all duration-300 cursor-pointer"
     >
       View More
     </button>

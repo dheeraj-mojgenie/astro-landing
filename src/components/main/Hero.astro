@@ -1,6 +1,15 @@
+---
+const logos = [
+  { src: '/assets/img/png/ias-logo.png', alt: 'IAS Logo' },
+  { src: '/assets/img/png/aas-kerala-logo.png', alt: 'AAS Kerala Logo' },
+  { src: '/assets/img/png/ioa-kerala-logo.png', alt: 'IOA Kerala Logo' },
+  { src: '/assets/img/png/caos-logo.png', alt: 'CAOS Logo' },
+];
+---
+
 <section
   id="about"
-  class="relative z-0 w-full bg-[url('/assets/img/jpg/popular-destination-hero.jpg')] bg-cover bg-center bg-no-repeat px-6 md:py-6 md:px-8 lg:px-16 pt-28 pb-10 md:pb-36 lg:pb-44 md:pt-56 lg:pt-44 text-white flex flex-col"
+  class="relative z-0 w-full bg-[url('/assets/img/jpg/popular-destination-hero.jpg')] bg-cover bg-center bg-no-repeat pt-16 md:pt-28 lg:pt-40 px-6 md:px-8 lg:px-14 pb-6 md:pb-16 lg:pb-30 text-white flex flex-col xl:h-screen"
 >
   <div
     class="absolute w-full h-full top-0 left-0 right-0 bottom-0 hidden md:block"
@@ -17,67 +26,44 @@
     <div
       class="flex flex-wrap justify-start items-center gap-3 sm:gap-5 md:gap-6 lg:gap-9"
     >
-      <div
-        class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 flex items-center justify-center p-1 sm:p-2"
-      >
-        <img
-          src="/assets/img/png/ias-logo.png"
-          class="max-w-full max-h-full object-contain"
-          alt="IAS Logo"
-        />
-      </div>
-      <div
-        class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 flex items-center justify-center p-1 sm:p-2"
-      >
-        <img
-          src="/assets/img/png/aas-kerala-logo.png"
-          class="max-w-full max-h-full object-contain"
-          alt="AAS Kerala Logo"
-        />
-      </div>
-      <div
-        class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 flex items-center justify-center p-1 sm:p-2"
-      >
-        <img
-          src="/assets/img/png/ioa-kerala-logo.png"
-          class="max-w-full max-h-full object-contain"
-          alt="IOA Kerala Logo"
-        />
-      </div>
-      <div
-        class="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 flex items-center justify-center p-1 sm:p-2"
-      >
-        <img
-          src="/assets/img/png/caos-logo.png"
-          class="max-w-full max-h-full object-contain"
-          alt="CAOS Logo"
-        />
-      </div>
+      {
+        logos.map((logo) => (
+          <div class="w-12 sm:w-16 md:w-20 lg:w-28 h-12 sm:h-16 md:h-20 lg:h-28 flex items-center justify-center p-1 sm:p-2">
+            <img
+              src={logo.src}
+              class="max-w-full max-h-full object-contain"
+              alt={logo.alt}
+            />
+          </div>
+        ))
+      }
     </div>
-    <div class="mt-4 sm:mt-6 md:mt-8 lg:mt-12 max-w-4xl">
+    <div class="max-w-6xl mt-3 md:mt-5 lg:mt-12">
       <h1
-        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ttcommons-black"
+        class="text-[1.8rem] md:text-4xl lg:text-5xl xl:text-7xl font-bold ttcommons-black leading-8 mt-3"
       >
         Biennial Conference of AASK
       </h1>
-      <p class="text-base sm:text-lg md:text-2xl ttcommons-regular">
+      <p
+        class="text-base sm:text-lg md:text-2xl lg:text-3xl ttcommons-regular leading-4 md:leading-8 mt-1 lg:mt-6"
+      >
         Association of Arthroscopy Society of Kerala | Kerala-Chapter of Indian
         Arthroscopy Society
       </p>
       <h2
-        class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mt-3 sm:mt-4 md:mt-5 lg:mt-6 ttcommons-black italic"
+        class="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-extrabold ttcommons-black italic mt-3 sm:mt-4 lg:mt-7"
       >
-        " The Enigma of Instability "
+        “ The Enigma of Instability ”
       </h2>
       <p
-        class="text-base sm:text-lg md:text-2xl leading-normal md:leading-relaxed mt-2 sm:mt-3 lg:mt-6 ttcommons-regular"
+        class="text-base sm:text-lg md:text-2xl ttcommons-regular mt-3 lg:mt-7"
       >
         On <span class="font-bold">2024 July 13 - 14</span>, The Gateway Hotel,
         Taj Calicut, Kerala
       </p>
       <div class="mt-6 sm:mt-8 md:mt-10 lg:mt-16 pb-10">
         <button
-          class="w-full sm:w-4/5 md:w-3/4 lg:w-2/3 xl:w-[537px] h-[45px] sm:h-[50px] md:h-[60px] lg:h-[80px] bg-white text-[#234893] font-bold text-base md:text-lg lg:text-xl rounded-md hover:bg-opacity-90 transition-all cursor-pointer shadow-md hover:shadow-lg active:shadow-sm"
+          class="w-4/12 min-w-max max-w-[537px] px-4 py-2 lg:py-3 text-base md:text-lg lg:text-xl bg-white text-[#234893] font-bold lg:font-medium hover:bg-opacity-90 transition-all cursor-pointer shadow-md hover:shadow-lg active:shadow-sm"
         >
           Register Now
         </button>
